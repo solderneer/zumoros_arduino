@@ -12,12 +12,12 @@ void rmotorCb(const std_msgs::Int16 &rmotor_msg);
 
 // Zumo Object Initializations
 Zumo32U4Motors motors;
+Zumo32U4ProximitySensors proxSensors;
 
 // ROS Initializations
 ros::NodeHandle nh;
 ros::Subscriber<std_msgs::Int16> lmotor_sub("lmotor", &lmotorCb);
 ros::Subscriber<std_msgs::Int16> rmotor_sub("rmotor", &rmotorCb);
-
 
 void setup() {
   // put your setup code here, to run once:
