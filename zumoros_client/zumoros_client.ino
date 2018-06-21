@@ -10,20 +10,27 @@
 void lmotorCb(const std_msgs::Int16 &lmotor_msg);
 void rmotorCb(const std_msgs::Int16 &rmotor_msg);
 
+
 // Zumo Object Initializations
 Zumo32U4Motors motors;
 Zumo32U4ProximitySensors proxSensors;
+
+// ROS message declarations
+std_msgs::
 
 // ROS Initializations
 ros::NodeHandle nh;
 ros::Subscriber<std_msgs::Int16> lmotor_sub("lmotor", &lmotorCb);
 ros::Subscriber<std_msgs::Int16> rmotor_sub("rmotor", &rmotorCb);
+ros::Publisher prox_pub("prox_sensor", &prox_data);
 
 void setup() {
   // put your setup code here, to run once:
   nh.initNode();
   nh.subscribe(lmotor_sub);
   nh.subscribe(rmotor_sub);
+
+  proxSensors.initThreeSensors();
 }
 
 void loop() {
