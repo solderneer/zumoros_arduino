@@ -34,7 +34,7 @@ void setup() {
   proxSensors.initThreeSensors();
 
   // Setup the data structure for array
-  prox_data.layout.data_offset = 0;
+  prox_data.layout.data_offset = 1;
   prox_data.layout.dim[0].label = "prox_sensors";
   prox_data.layout.dim[0].size = 6;
   prox_data.layout.dim[0].stride = 1;
